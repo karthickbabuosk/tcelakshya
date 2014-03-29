@@ -8,12 +8,13 @@ class User < ActiveRecord::Base
   before_save do |user| 
     user.email = email.downcase 
     user.role = ROLES[:user]
+  end
 
   acts_as_authentic do |c|
   	c.login_field = 'email'
   end
 
-  default_scope :users, :conditions => {:role => ROLES[:user]}
+  default_scope {where(:role => ROLES[:user])}
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
