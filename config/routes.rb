@@ -1,12 +1,12 @@
 AirbnbDemo::Application.routes.draw do
 
-  resources :properties do
-    resources :bookings
-  end
+  # resources :properties do
+  #   resources :bookings
+  # end
 
   resources :users
-  resources :properties
-  resources :bookings
+  # resources :properties
+  resources :contributions
   resources :user_sessions
 
   root to: 'users#home'

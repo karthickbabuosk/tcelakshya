@@ -1,0 +1,7 @@
+<%= form_for @contribution do |f|%>
+	<%= f.select(:user_id, User.all.collect {|u| [u.name, u.id]})%>
+	<%= f.text_field :amount%>
+	<input type="date" name="contribution[contribution_date]">
+	
+	<%= f.submit "Add User"%>
+<%end%>
